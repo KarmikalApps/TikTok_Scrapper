@@ -1,0 +1,31 @@
+<Application x:Class="TikTokScrapper.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+ <Application.Resources>
+  <SolidColorBrush x:Key="Mint" Color="#A8F0CD"/>
+  <SolidColorBrush x:Key="Muted" Color="#969F9C"/>
+  <Style TargetType="Button">
+   <Setter Property="Foreground" Value="#E7EDEA"/><Setter Property="Background" Value="#252B28"/><Setter Property="BorderBrush" Value="#353D38"/><Setter Property="BorderThickness" Value="1"/><Setter Property="Padding" Value="20,12"/><Setter Property="FontSize" Value="14"/><Setter Property="FontWeight" Value="SemiBold"/><Setter Property="Cursor" Value="Hand"/>
+   <Setter Property="Template"><Setter.Value><ControlTemplate TargetType="Button"><Border x:Name="Surface" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10" Padding="{TemplateBinding Padding}"><ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/></Border><ControlTemplate.Triggers><Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Surface" Property="Opacity" Value="0.83"/></Trigger><Trigger Property="IsPressed" Value="True"><Setter TargetName="Surface" Property="Opacity" Value="0.65"/></Trigger><Trigger Property="IsEnabled" Value="False"><Setter TargetName="Surface" Property="Opacity" Value="0.35"/><Setter Property="Cursor" Value="Arrow"/></Trigger><Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Surface" Property="BorderBrush" Value="White"/></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter>
+  </Style>
+  <Style x:Key="Primary" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}"><Setter Property="Background" Value="{StaticResource Mint}"/><Setter Property="Foreground" Value="#14261D"/><Setter Property="BorderThickness" Value="0"/><Setter Property="Height" Value="52"/></Style>
+  <Style x:Key="IconButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}"><Setter Property="Width" Value="36"/><Setter Property="Height" Value="36"/><Setter Property="Padding" Value="0"/><Setter Property="Background" Value="Transparent"/><Setter Property="BorderThickness" Value="0"/><Setter Property="FontFamily" Value="Segoe Fluent Icons"/><Setter Property="FontWeight" Value="Normal"/><Setter Property="FontSize" Value="15"/></Style>
+  <Style TargetType="TextBox">
+   <Setter Property="Background" Value="#101412"/><Setter Property="Foreground" Value="#F2F5F3"/>
+   <Setter Property="CaretBrush" Value="{StaticResource Mint}"/><Setter Property="SelectionBrush" Value="#397153"/>
+   <Setter Property="BorderBrush" Value="#38413B"/><Setter Property="BorderThickness" Value="1"/>
+   <Setter Property="Padding" Value="15,14"/><Setter Property="FontSize" Value="14"/><Setter Property="VerticalContentAlignment" Value="Center"/>
+   <Setter Property="Template"><Setter.Value>
+    <ControlTemplate TargetType="TextBox">
+     <Border x:Name="Box" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+      <!-- TextBoxBase applies Padding to this host itself. A matching Margin would apply it twice and clip the text/caret. -->
+      <ScrollViewer x:Name="PART_ContentHost" Margin="0" Focusable="False"/>
+     </Border>
+     <ControlTemplate.Triggers>
+      <Trigger Property="IsKeyboardFocused" Value="True"><Setter TargetName="Box" Property="BorderBrush" Value="{StaticResource Mint}"/></Trigger>
+      <Trigger Property="IsEnabled" Value="False"><Setter Property="Opacity" Value="0.6"/></Trigger>
+     </ControlTemplate.Triggers>
+    </ControlTemplate>
+   </Setter.Value></Setter>
+  </Style>
+  <Style TargetType="ProgressBar"><Setter Property="Height" Value="7"/><Setter Property="Background" Value="#303832"/><Setter Property="Foreground" Value="{StaticResource Mint}"/><Setter Property="Template"><Setter.Value><ControlTemplate TargetType="ProgressBar"><Grid ClipToBounds="True"><Border Background="{TemplateBinding Background}" CornerRadius="3"/><Border x:Name="PART_Track"/><Border x:Name="PART_Indicator" HorizontalAlignment="Left" Background="{TemplateBinding Foreground}" CornerRadius="3"/><Border x:Name="Scanning" Background="{TemplateBinding Foreground}" Opacity="0" CornerRadius="3"/></Grid><ControlTemplate.Triggers><Trigger Property="IsIndeterminate" Value="True"><Trigger.EnterActions><BeginStoryboard><Storyboard RepeatBehavior="Forever" AutoReverse="True"><DoubleAnimation Storyboard.TargetName="Scanning" Storyboard.TargetProperty="Opacity" From="0.1" To="0.7" Duration="0:0:0.8"/></Storyboard></BeginStoryboard></Trigger.EnterActions><Trigger.ExitActions><BeginStoryboard><Storyboard><DoubleAnimation Storyboard.TargetName="Scanning" Storyboard.TargetProperty="Opacity" To="0" Duration="0"/></Storyboard></BeginStoryboard></Trigger.ExitActions></Trigger></ControlTemplate.Triggers></ControlTemplate></Setter.Value></Setter></Style>
+ </Application.Resources>
+</Application>

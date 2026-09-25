@@ -1,0 +1,13 @@
+bin/
+obj/
+dist/
+tools/*.exe
+*.exe
+releases/
+.vs/
+*.user
+*.suo
+scrapped/
+*.part
+*.cookies.txt
+cookies.txt

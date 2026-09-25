@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>TikTok Scrapper</AssemblyName>
+    <RootNamespace>TikTokScrapper</RootNamespace>
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>1.100.0</Version>
+    <AssemblyVersion>1.100.0.0</AssemblyVersion>
+    <FileVersion>1.100.0.3</FileVersion>
+    <InformationalVersion>v1.100a</InformationalVersion>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Authors>Karmikal Apps</Authors>
+    <Company>Karmikal Apps</Company>
+    <Product>TikTok Scrapper</Product>
+    <Copyright>Copyright © 2026 Karmikal Apps</Copyright>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Tests\**" />
+    <None Remove="Tests\**" />
+    <Resource Include="Assets\logo.png" />
+    <EmbeddedResource Include="EnginePlugin\tiktok_scrapper.py" LogicalName="TikTokScrapper.PhotoPlugin" />
+  </ItemGroup>
+</Project>
